@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Question for Von</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="petals-container"></div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div id="loading-screen">
+        <div class="heart-spinner">❤</div>
+        <p>Preparing something special...</p>
+    </div>
+
+    <button id="music-btn" class="music-btn">🔇</button>
+
+    <div class="progress-container">
+        <span class="heart-step" id="step1">❤</span>
+        <span class="heart-step" id="step2">❤</span>
+        <span class="heart-step" id="step3">❤</span>
+        <span class="heart-step" id="step4">❤</span>
+        <span class="heart-step" id="step5">❤</span>
+    </div>
+
+    <!-- LOGIN SCREEN -->
+    <div id="login-screen" class="screen active">
+        <div class="card floating-container">
+            <h1 class="dancing-title sway-anim">Who r u?</h1>
+            <div class="input-wrapper">
+                <input type="text" id="name-input" placeholder="First Name Only..." autocomplete="off">
+                <button id="login-btn">Enter</button>
+            </div>
+            <p id="error-msg" class="hidden-msg"></p>
+        </div>
+    </div>
+
+    <!-- WELCOME SCREEN -->
+<!-- WELCOME SCREEN -->
+<div id="welcome-screen" class="screen hidden">
+    <div class="card">
+        <img src="images/welcome-character.gif" alt="Character Waving" class="character-img" onerror="this.style.display='none'">
+        <h1 id="welcome-text" class="dancing-title">Hello!</h1>
+    </div>
+</div>
+
+    <!-- TRAVIS SCREEN -->
+    <div id="travis-screen" class="screen hidden">
+        <div class="card">
+            <h1 class="dancing-title glow-text" style="font-size: 4rem;">HELL YEAH!!</h1>
+            <p style="font-size: 1.5rem; margin-top: 20px;">🎉🎊🎉</p>
+        </div>
+    </div>
+
+    <!-- ENVELOPE SCREEN -->
+    <div id="envelope-screen" class="screen hidden">
+        <div class="envelope-wrapper">
+            <div id="envelope" class="envelope">
+                <div class="front flap"></div>
+                <div class="front pocket"></div>
+                <div class="letter-inside"></div>
+                <div class="wax-seal">❤</div>
+            </div>
+            <p class="instruction-text">Click the envelope</p>
+        </div>
+    </div>
+
+    <!-- LETTER SCREEN -->
+    <div id="letter-screen" class="screen hidden">
+        <div class="paper-unfold">
+            <p class="letter-text">
+                HI VON!! <br><br>
+                The prettiest, most hard working, the sweetest, the most caring, 
+                the kindest, one of my favorite persons in my life.<br><br>
+                I'll keep it short, this isn't where you'll read everything I feel 
+                and think about you, this is a letter of invitation :D<br><br>
+                Click the arrow...
+            </p>
+            <button id="next-step-btn" class="next-arrow">⬇</button>
+        </div>
+    </div>
+
+    <!-- QUESTION SCREEN -->
+    <div id="question-screen" class="screen hidden">
+        <div class="card">
+            <h1 class="dancing-title glow-text">Will you be my valentine? 🌹</h1>
+            <div class="btn-group">
+                <button id="yes-btn">Yes</button>
+                <button id="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAILS SCREEN (WITH POLAROID COLLAGE) -->
+    <div id="von-details-screen" class="screen hidden">
+        <div class="von-details-container">
+            
+            <!-- Polaroid Collage (14 photos) -->
+            <div class="polaroid-collage-side">
+                <div class="polaroid small c1"><img src="photos/photo1.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c2"><img src="photos/photo2.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c3"><img src="photos/photo3.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c4"><img src="photos/photo4.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c5"><img src="photos/photo5.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c6"><img src="photos/photo6.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c7"><img src="photos/photo7.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c8"><img src="photos/photo8.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c9"><img src="photos/photo9.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c10"><img src="photos/photo10.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c11"><img src="photos/photo11.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c12"><img src="photos/photo12.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c13"><img src="photos/photo13.jpg" onerror="this.style.visibility='hidden'"></div>
+                <div class="polaroid small c14"><img src="photos/photo14.jpg" onerror="this.style.visibility='hidden'"></div>
+            </div>
+
+            <!-- Sticky Note (Gap-Free) -->
+            <div class="sticky-note">
+                <div class="sticky-tape"></div>
+                <h2>It's a Date! ❤️</h2>
+                <div class="reasons-section">
+                    <p class="section-label">Why you're amazing:</p>
+                    <ul id="reasons-list">
+                        <!-- Reasons will be populated by JavaScript -->
+                    </ul>
+                </div>
+                <div class="date-info">
+                    <p><strong>What:</strong> Valentines DATE</p>
+                    <p><strong>When:</strong> TBD (let's talk about it :))</p>
+                    <p><strong>Where:</strong> Secret 🤫</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <audio id="bg-music" src="sounds/background-music.mp3" loop></audio>
+    <audio id="sound-envelope" src="sounds/envelope-open.mp3"></audio>
+    <audio id="sound-celebration" src="sounds/celebration.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
